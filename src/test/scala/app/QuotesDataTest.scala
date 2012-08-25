@@ -1,7 +1,6 @@
 package app
 
 import org.scalatest.FunSuite
-import java.util.Calendar
 import java.text.SimpleDateFormat
 
 class QuotesDataTest extends FunSuite {

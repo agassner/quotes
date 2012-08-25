@@ -32,14 +32,12 @@ def get_constituents():
 
     ftse_url = "http://finance.yahoo.com/q/cp?s=%5EFTSE"
 
+    # TODO: To be improved
     symbols = \
         get_symbols(ftse_url) + \
         get_symbols("%s&c=1" % ftse_url) + \
         get_symbols("%s&c=2" % ftse_url)
     symbols.sort()
-    
-    # print symbols
-
     
     if not os.path.exists(data_dir):
         os.makedirs(data_dir)
