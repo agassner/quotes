@@ -7,7 +7,7 @@ object QuotesData {
 
   def loadFromFile(symbol: String) = {
     // TODO: Change to use relative path
-    val path = "/home/agassner/workspace/github/quotes/python/ftse/" + symbol + ".txt"
+    val path = "/home/agassner/workspace/github/quotes/python/ftse_data/" + symbol + ".txt"
     Source.fromFile(path).getLines()
   }
 

@@ -7,6 +7,9 @@ import sys
 import httplib2
 import time as tm
 import re
+import os
+
+data_dir = "ftse_data"
 
 def get_httplib2(url):
     h = httplib2.Http()
@@ -37,7 +40,10 @@ def get_constituents():
     
     # print symbols
 
-    file = open("ftse/constituents.txt", "w")
+    
+    if not os.path.exists(data_dir):
+        os.makedirs(data_dir)
+    file = open("%s/ftse_constituents.txt" % data_dir, "w")
     [file.write("%s\n" % symbol) for symbol in symbols]
     file.close()
 
@@ -52,7 +58,7 @@ def get_quotes(symbol):
     content = get_httplib2("http://ichart.yahoo.com/table.csv?s=%s" % symbol)
 
     if content:
-        file = open("ftse/%s.txt" % symbol, "w")
+        file = open("%s/%s.txt" % (data_dir, symbol), "w")
         [file.write("%s\n" % line) for line in transform_to_metastock(symbol, content)]
         file.close()
 
