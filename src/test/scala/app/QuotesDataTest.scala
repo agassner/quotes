@@ -14,6 +14,7 @@ class QuotesDataTest extends FunSuite {
     val data = List("ARM.L,20120824,580.00,583.65,575.00,579.00,1908500,0","ARM.L,20120823,585.00,586.00,575.50,580.00,3030600,0").toIterator
     val quotes = QuotesData.build(data).toList
     assert(quotes.size === 2)
+
     assert(quotes.head.symbol === "ARM.L")
     assert(quotes.head.datetime === new SimpleDateFormat("YYYYMMdd").parse("20120824"))
     assert(quotes.head.open === 580)
@@ -21,6 +22,14 @@ class QuotesDataTest extends FunSuite {
     assert(quotes.head.low === 575)
     assert(quotes.head.close === 579)
     assert(quotes.head.volume === 1908500)
+
+    assert(quotes.last.symbol === "ARM.L")
+    assert(quotes.last.datetime === new SimpleDateFormat("YYYYMMdd").parse("20120823"))
+    assert(quotes.last.open === 585)
+    assert(quotes.last.high === 586)
+    assert(quotes.last.low === 575.50)
+    assert(quotes.last.close === 580)
+    assert(quotes.last.volume === 3030600)
   }
 
 }
