@@ -9,7 +9,7 @@ import scala.Some
 
 object DbUtils {
 
-  def initialiseDatabaseConnection() = {
+  def initialiseDatabaseConnection() {
     Class.forName("com.mysql.jdbc.Driver")
 
     SessionFactory.concreteFactory = Some(() =>
@@ -20,14 +20,14 @@ object DbUtils {
     )
   }
 
-  def setupDatabaseSchema() = {
+  def setupDatabaseSchema() {
     transaction {
       QuoteDb.drop
       QuoteDb.create
     }
   }
 
-  def loadDatabase() = {
+  def loadDatabase() {
     for (symbol <- loadConstituentsFromFile())
       transaction {
         quotes.insert(buildListOfQuotes(loadFromFile(symbol)))
