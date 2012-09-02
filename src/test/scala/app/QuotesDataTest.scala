@@ -13,12 +13,12 @@ class QuotesDataTest extends FunSuite {
 
   test("Load file with ARM.L quotes") {
     val data = loadFromFile("ARM.L")
-    assert(data.size > 0)
+    assert(!data.isEmpty)
   }
 
   test("Load file with XYZ.L quotes (File not found)") {
     val data = loadFromFile("XYZ.L")
-    assert(data.size === 0)
+    assert(data.isEmpty)
   }
 
   test("Build a list of Quote from some data") {

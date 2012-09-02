@@ -18,7 +18,7 @@ object QuotesData {
     if (Files.exists(Paths.get(path))) {
       Source.fromFile(path).getLines().toList
     } else {
-      List.empty
+      Nil
     }
   }
 
@@ -27,7 +27,6 @@ object QuotesData {
   }
 
   def buildQuote(values: String) = {
-    // TODO: It can be improved
     val listOfValues = values.split(",")
     new Quote(
       listOfValues(0),

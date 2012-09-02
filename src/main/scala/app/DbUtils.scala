@@ -34,6 +34,4 @@ object DbUtils {
       }
   }
 
-  // from(quotes)(s => select(s)).foreach(println)
-
 }
