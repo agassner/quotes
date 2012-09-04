@@ -64,9 +64,9 @@ object Quote {
       quotes
     } else {
       val closePrices = quotes.take(days).map(_.close)
-      val mean = closePrices.foldLeft(BigDecimal(0))((total, item) => total + item) / days
+      val mean = (closePrices.sum / days).setScale(2, HALF_DOWN)
       val quote = quotes.head
-      new Quote(quote, quote.indicators + ("sma" + days -> mean.setScale(2, HALF_DOWN))) :: sma(quotes.drop(1), days)
+      new Quote(quote, quote.indicators + ("sma" + days -> mean)) :: sma(quotes.drop(1), days)
     }
   }
 
