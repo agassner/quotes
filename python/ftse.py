@@ -71,7 +71,7 @@ def transform_to_metastock(symbol, content):
 
     lines = [ tuple(line.split(",")) for line in content.split("\n") ][1:-1]
 
-    return [ "%s,%s,%s,%s,%s,%s,%s,0" % (symbol, format_date(line[0]), line[1], line[2], line[3], line[6], line[5]) for line in lines ]
+    return [ "%s,%s,%s,%s,%s,%s,%s,0" % (symbol, format_date(line[0]), line[1], line[2], line[3], line[4], line[5]) for line in lines ]
 
 def format_date(date):
     return datetime.strptime(date, "%Y-%m-%d").strftime("%Y%m%d")
