@@ -66,8 +66,28 @@ object Quote {
       val closePrices = quotes.take(days).map(_.close)
       val mean = (closePrices.sum / days).setScale(2, HALF_DOWN)
       val quote = quotes.head
-      new Quote(quote, quote.indicators + ("sma" + days -> mean)) :: sma(quotes.drop(1), days)
+      Quote(quote, quote.indicators + ("sma" + days -> mean)) :: sma(quotes.drop(1), days)
     }
+  }
+
+  def diff[N](quotes: List[Quote], indicator: String)(ext: (Quote) => N)(implicit n: Numeric[N]) = {
+    quotes.map {
+      (quote: Quote) =>
+        val difference = n.toDouble(ext(quote)) - quote.indicators(indicator)
+        Quote(quote, quote.indicators + (indicator + "diff" -> difference))
+    }
+  }
+
+  def apply(symbol: String, datetime: Date, open: BigDecimal, high: BigDecimal, low: BigDecimal, close: BigDecimal, volume: BigDecimal, indicators: Map[String, BigDecimal] = Map()) = {
+    new Quote(symbol, datetime, open, high, low, close, volume, indicators)
+  }
+
+  def apply() = {
+    new Quote()
+  }
+
+  def apply(quote: Quote, indicators: Map[String, BigDecimal]) = {
+    new Quote(quote, indicators)
   }
 
 }

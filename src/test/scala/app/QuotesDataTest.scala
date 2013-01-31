@@ -8,7 +8,7 @@ class QuotesDataTest extends FunSuite {
 
   test("Load file with constituents") {
     val data = loadConstituentsFromFile()
-    assert(data.size === 101)
+    assert(data.size === 79)
   }
 
   test("Load file with ARM.L quotes") {
@@ -29,7 +29,7 @@ class QuotesDataTest extends FunSuite {
     assert(quotes.head.symbol === "ARM.L")
     assert(quotes.head.datetime === new SimpleDateFormat("yyyyMMdd").parse("20120824"))
     assert(quotes.head.open === 580)
-    assert(quotes.head.high === 583.65)
+    assert(quotes.head.high === BigDecimal("583.65"))
     assert(quotes.head.low === 575)
     assert(quotes.head.close === 579)
     assert(quotes.head.volume === 1908500)

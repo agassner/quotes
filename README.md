@@ -1,7 +1,7 @@
 Quotes
 ======
 
-The idea of this project is to be a backtesting platform for algorithmic trading written in Scala.
+The idea of this project is to be a stock screener written in Scala.
 
 There are two modules initially:
  - The Python module downloads shares prices from Yahoo! Finance (Existing module - to be migrated to Scala)
@@ -9,4 +9,4 @@ There are two modules initially:
 
 Initial ideas:
  - Day trading only
- - Generate reports focusing optimisation
+ - Being able to add criteria

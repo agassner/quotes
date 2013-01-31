@@ -28,7 +28,7 @@ object QuotesData {
 
   def buildQuote(values: String) = {
     val listOfValues = values.split(",")
-    new Quote(
+    Quote(
       listOfValues(0),
       new SimpleDateFormat("yyyyMMdd").parse(listOfValues(1)),
       BigDecimal(listOfValues(2)),

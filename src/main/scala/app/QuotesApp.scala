@@ -7,8 +7,8 @@ import Quote._
 object QuotesApp extends App {
 
   initialiseDatabaseConnection()
-  //  setupDatabaseSchema()
-  //  loadDatabase()
+//  setupDatabaseSchema()
+//  loadDatabase()
 
   val quotes = listAllBySymbol("ARM.L")
   val quotesSma5 = sma(quotes, 5)
