@@ -3,3 +3,4 @@ target/
 .history
 project/boot
 python/ftse_data/*
+node_modules
